@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-  has_one :blog
+  belongs_to :blog
   has_many :messages
 end

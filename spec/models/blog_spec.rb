@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Blog, type: :model do
   it 'requires a name' do 
   	blog = Blog.new(name: "")
-  	blod.valid?
+  	blog.valid?
   	expect(blog.errors[:name].any?).to eq(true)
   end
 
@@ -14,7 +14,7 @@ RSpec.describe Blog, type: :model do
   end
 
   it 'has many posts' do 
-  	nlog = Blog.create(name: "Blog", description: "A Blog")
+  	blog = Blog.create(name: "Blog", description: "A Blog")
   	post1 = blog.posts.create(title: "This is a title", content: "Content")
   	post2 = blog.posts.create(title: "Another title", content: "More content")
   	expect(blog.posts).to include(post1)
