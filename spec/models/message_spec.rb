@@ -9,18 +9,18 @@ RSpec.describe Message, type: :model do
   	expect(message.errors[:author].any?).to eq(true)
   end
 
-  it 'requires a message' do 
+  it 'requires a message content' do 
   	blog = Blog.create(name: 'Blog', description: 'A Blog')
   	post = blog.posts.create(title: 'This is a title', content: 'Content')
-  	message = post.messages.new(message: '')
+  	message = post.messages.new(content: '')
   	message.valid?
-  	expect(message.errors[:message].any?).to eq(true)
+  	expect(message.errors[:content].any?).to eq(true)
   end
 
   it 'belongs to a post' do 
   	blog = Blog.create(name: 'Blog', description: 'A Blog')
   	post = blog.posts.create(title: 'This is a title', content: 'Content')
-  	message = post.messages.create(author: 'Phil JAckson', message: '11 Rings')
+  	message = post.messages.create(author: 'Phil JAckson', content: '11 Rings')
   	expect(message.post).to eq(post)
   end
 end
