@@ -24,7 +24,7 @@ RSpec.describe Post, type: :model do
   it 'has many messeges' do 
   	blog = Blog.create(name: 'Blog', description: 'A Blog')
   	post = blog.posts.create(title: 'This is a title', content: 'Content')
-  	message = post.messages.create(author: 'Phil Jackson', message: '11 Rings')
+  	message = post.messages.create(author: 'Phil Jackson', content: '11 Rings')
   	expect(post.messages).to include(message)
   end
 end
